@@ -6,7 +6,6 @@ from pdf2image import convert_from_path
 from IPython.display import Image, display
 
 # 1. SECURE AUTHENTICATION
-# Paste your token from Hugging Face here
 login(token="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") 
 
 # 2. INITIALIZE VISION ENGINE
@@ -14,7 +13,6 @@ print("Initializing ColPali v1.2 Engine...")
 RAG = RAGMultiModalModel.from_pretrained("vidore/colpali-v1.2")
 
 # 3. DOCUMENT INGESTION PIPELINE
-# Using the absolute path we discovered: /media/my_docs
 input_folder = "/media/my_docs"
 processed_folder = "processed_visuals"
 
@@ -43,7 +41,6 @@ else:
     )
 
     # 5. THE SEARCH QUERY
-    # We ask for a visual element to prove the AI "sees" your NVIDIA/Google charts
     query = "Find a page with a complex data table, financial chart, or technical diagram."
     results = RAG.search(query, k=1)
 
